@@ -1,0 +1,23 @@
+@mixin light($color, $highlight, $border-color: false) {
+  label {
+    background: $color radial-gradient($highlight, transparent);
+    border: 1px solid;
+
+    box-shadow: 0 0 20px #111 inset,
+    0 0 0px $highlight;
+
+    opacity: 0.33;
+  }
+
+  input:checked + label,
+  label:hover {
+    @if $border-color {
+      border-color: $border-color;
+    } @else {
+      border-color: $color;
+    }
+    opacity: 1.0;
+    box-shadow: 0 0 20px #222 inset,
+    0 0 20px $highlight;
+  }
+}

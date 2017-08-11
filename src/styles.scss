@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Droid+Sans+Mono|Merriweather|Roboto');
+
+body {
+  background-color: #eee;
+  color: #222;
+  font-family: "Roboto", Arial, sans-serif;
+  padding-bottom: 4rem;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+

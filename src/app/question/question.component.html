@@ -1,0 +1,27 @@
+<div class="question">
+  <h2 class="title">{{title()}}</h2>
+  <div class="lights">
+    <div class="light red">
+      <input type="radio" name="{{name()}}" id="{{name()}}[sad]">
+      <label for="{{name()}}[sad]"></label>
+    </div>
+    <div class="light yellow">
+      <input type="radio" name="{{name()}}" id="{{name()}}[meh]">
+      <label for="{{name()}}[meh]"></label>
+    </div>
+    <div class="light green">
+      <input type="radio"
+             name="{{name()}}"
+             id="{{name()}}[happy]">
+
+      <label for="{{name()}}[happy]"></label>
+    </div>
+  </div>
+  <ul class="description">
+    <li class="awesome">{{awesome()}}</li>
+    <li class="crappy">{{crappy()}}</li>
+  </ul>
+  <div class="comment">
+    <textarea placeholder="Optional comments"></textarea>
+  </div>
+</div>
