@@ -5,6 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { QuestionComponent } from './question/question.component';
 import { SurveyComponent } from './survey/survey.component';
+import {environment} from "../environments/environment";
+import {AngularFireModule} from "angularfire2";
+import {AngularFireDatabaseModule} from "angularfire2/database";
+import {AngularFireAuthModule} from "angularfire2/auth";
 
 @NgModule({
   declarations: [
@@ -14,7 +18,10 @@ import { SurveyComponent } from './survey/survey.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

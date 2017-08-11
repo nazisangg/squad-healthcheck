@@ -1,5 +1,6 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Question} from "../question";
+import {AngularFireDatabase} from 'angularfire2/database';
 
 @Component({
   selector: 'question',
@@ -11,7 +12,8 @@ export class QuestionComponent implements OnInit {
   @Input()
   question: Question;
 
-  constructor() { }
+  constructor(private db: AngularFireDatabase) {
+  }
 
   ngOnInit() {
   }
@@ -33,28 +35,30 @@ export class QuestionComponent implements OnInit {
   }
 
   private getRef() {
-    return firebase.database()
+    return this.db.database
       .ref("survey")
       .child("foo")
       .child("question")
       .child(this.question.name)
-      .child("responses");
+      .child("responses")
+      .child("session")
+      .child("foo");
   }
 
   red() {
-    this.getRef().push("red");
+    this.getRef().set("red");
 
     console.log(":(");
   }
 
   green() {
-    this.getRef().push("green");
-    
+    this.getRef().set("green");
+
     console.log(":)");
   }
 
   yellow() {
-    this.getRef().push("yellow");
+    this.getRef().set("yellow");
 
     console.log(":|");
   }
