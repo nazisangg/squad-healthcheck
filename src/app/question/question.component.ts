@@ -31,4 +31,16 @@ export class QuestionComponent implements OnInit {
   crappy() {
     return this.question.crappy;
   }
+
+  red() {
+    console.log(":(");
+  }
+
+  green() {
+    console.log(":)");
+  }
+
+  yellow() {
+    console.log(":|");
+  }
 }

@@ -3,18 +3,24 @@
   <div class="lights">
     <div class="light red">
       <input type="radio" name="{{name()}}" id="{{name()}}[sad]">
-      <label for="{{name()}}[sad]"></label>
+      <label for="{{name()}}[sad]"
+             (click)="red()">
+      </label>
     </div>
     <div class="light yellow">
       <input type="radio" name="{{name()}}" id="{{name()}}[meh]">
-      <label for="{{name()}}[meh]"></label>
+      <label for="{{name()}}[meh]"
+             (click)="yellow()"></label>
     </div>
     <div class="light green">
       <input type="radio"
              name="{{name()}}"
              id="{{name()}}[happy]">
 
-      <label for="{{name()}}[happy]"></label>
+      <label for="{{name()}}[happy]"
+             (click)="green()">
+
+      </label>
     </div>
   </div>
   <ul class="description">
