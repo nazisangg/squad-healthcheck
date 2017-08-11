@@ -6,11 +6,11 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyD_W5WVey3AEq3fbBEU2z5VsJq6CKmcaTE",
-    authDomain: "healthcheck-e2962.firebaseapp.com",
-    databaseURL: "https://healthcheck-e2962.firebaseio.com",
-    projectId: "healthcheck-e2962",
-    storageBucket: "",
-    messagingSenderId: "607698254659"
+    apiKey: "AIzaSyBPdE9vzboDeiQEGlJVN9tMLjkw1D7-AOM",
+    authDomain: "squad-healthcheck.firebaseapp.com",
+    databaseURL: "https://squad-healthcheck.firebaseio.com",
+    projectId: "squad-healthcheck",
+    storageBucket: "squad-healthcheck.appspot.com",
+    messagingSenderId: "948521662878"
   }
 };

@@ -35,13 +35,11 @@ export class QuestionComponent implements OnInit {
   }
 
   private getRef() {
-    return this.db.database
+    return this.db.app.database()
       .ref("survey")
       .child("foo")
-      .child("question")
-      .child(this.question.name)
       .child("responses")
-      .child("session")
+      .child(this.question.name)
       .child("foo");
   }
 

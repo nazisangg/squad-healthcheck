@@ -7,7 +7,6 @@ import {Question} from "../question";
   styleUrls: ['./survey.component.scss']
 })
 export class SurveyComponent implements OnInit {
-
   questions = [
     new Question(
       "support",
