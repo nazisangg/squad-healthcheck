@@ -32,15 +32,30 @@ export class QuestionComponent implements OnInit {
     return this.question.crappy;
   }
 
+  private getRef() {
+    return firebase.database()
+      .ref("survey")
+      .child("foo")
+      .child("question")
+      .child(this.question.name)
+      .child("responses");
+  }
+
   red() {
+    this.getRef().push("red");
+
     console.log(":(");
   }
 
   green() {
+    this.getRef().push("green");
+    
     console.log(":)");
   }
 
   yellow() {
+    this.getRef().push("yellow");
+
     console.log(":|");
   }
 }
