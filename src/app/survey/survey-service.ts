@@ -79,10 +79,10 @@ export class SurveyService {
     var response = this.db.database
       .ref("survey-responses")
       .child(survey.id)
-      .child("question")
-      .child(question.name)
       .child("responses")
-      .child(this.session.id);
+      .child(this.session.id)
+      .child("question")
+      .child(question.name);
 
     response.set(vote);
   }
