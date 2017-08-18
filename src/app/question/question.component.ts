@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Question} from "../question";
 import {AngularFireDatabase} from 'angularfire2/database';
+import {AngularFireAuth} from "angularfire2/auth";
 
 @Component({
   selector: 'question',
@@ -9,10 +10,21 @@ import {AngularFireDatabase} from 'angularfire2/database';
 })
 export class QuestionComponent implements OnInit {
 
+  userId: any;
+
   @Input()
   question: Question;
 
-  constructor(private db: AngularFireDatabase) {
+  constructor(private db: AngularFireDatabase,
+              private fireAuth: AngularFireAuth) {
+    this.fireAuth.authState.subscribe((user) => {
+      console.log(user);
+      if (user) {
+        this.userId = user.uid;
+      } else {
+        this.userId = null;
+      }
+    })
   }
 
   ngOnInit() {
@@ -34,29 +46,42 @@ export class QuestionComponent implements OnInit {
     return this.question.crappy;
   }
 
-  private getRef() {
+  private getSurveyQuestionRef() {
     return this.db.app.database()
       .ref("survey")
       .child("foo")
       .child("responses")
-      .child(this.question.name)
-      .child("foo");
+      .child(this.userId)
+      .child(this.question.name);
+  }
+
+  private getResponseRef() {
+    return this.db.app.database()
+      .ref("responses")
+      .child("foo")
+      .child(this.question.name);
   }
 
   red() {
-    this.getRef().set("red");
+    this.storeValue("red");
 
     console.log(":(");
   }
 
+  private storeValue(val: string) {
+    if (this.userId) {
+      this.getSurveyQuestionRef().set(val);
+    }
+  }
+
   green() {
-    this.getRef().set("green");
+    this.storeValue("green");
 
     console.log(":)");
   }
 
   yellow() {
-    this.getRef().set("yellow");
+    this.storeValue("yellow");
 
     console.log(":|");
   }
